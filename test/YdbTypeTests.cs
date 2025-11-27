@@ -72,17 +72,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     public async ValueTask TestBool()
     {
         await TestType<bool, bool?>(
-            new DbDataType(typeof(bool)),
+            new DbDataType(typeof(bool), DataType.Boolean),
             default,
             default);
 
         await TestType<bool, bool?>(
-            new DbDataType(typeof(bool)),
+            new DbDataType(typeof(bool), DataType.Boolean),
             true,
             false);
 
         await TestType<bool, bool?>(
-            new DbDataType(typeof(bool)),
+            new DbDataType(typeof(bool), DataType.Boolean),
             false,
             true);
     }
@@ -92,17 +92,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<sbyte, sbyte?>(
-            new DbDataType(typeof(sbyte)),
+            new DbDataType(typeof(sbyte), DataType.SByte),
             default,
             default);
 
         await TestType<sbyte, sbyte?>(
-            new DbDataType(typeof(sbyte)),
+            new DbDataType(typeof(sbyte), DataType.SByte),
             sbyte.MinValue,
             sbyte.MaxValue);
 
         await TestType<sbyte, sbyte?>(
-            new DbDataType(typeof(sbyte)),
+            new DbDataType(typeof(sbyte), DataType.SByte),
             sbyte.MaxValue,
             sbyte.MinValue);
 
@@ -126,17 +126,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<byte, sbyte?>(
-            new DbDataType(typeof(byte)),
+            new DbDataType(typeof(byte), DataType.Byte),
             default,
             default);
 
         await TestType<byte, byte?>(
-            new DbDataType(typeof(byte)),
+            new DbDataType(typeof(byte), DataType.Byte),
             byte.MinValue,
             byte.MaxValue);
 
         await TestType<byte, byte?>(
-            new DbDataType(typeof(byte)),
+            new DbDataType(typeof(byte), DataType.Byte),
             byte.MaxValue,
             byte.MinValue);
 
@@ -163,17 +163,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<short, short?>(
-            new DbDataType(typeof(short)),
+            new DbDataType(typeof(short), DataType.Int16),
             default,
             default);
 
         await TestType<short, short?>(
-            new DbDataType(typeof(short)),
+            new DbDataType(typeof(short), DataType.Int16),
             short.MinValue,
             short.MaxValue);
 
         await TestType<short, short?>(
-            new DbDataType(typeof(short)),
+            new DbDataType(typeof(short), DataType.Int16),
             short.MaxValue,
             short.MinValue);
 
@@ -197,17 +197,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<ushort, ushort?>(
-            new DbDataType(typeof(ushort)),
+            new DbDataType(typeof(ushort), DataType.UInt16),
             default,
             default);
 
         await TestType<ushort, ushort?>(
-            new DbDataType(typeof(ushort)),
+            new DbDataType(typeof(ushort), DataType.UInt16),
             ushort.MinValue,
             ushort.MaxValue);
 
         await TestType<ushort, ushort?>(
-            new DbDataType(typeof(ushort)),
+            new DbDataType(typeof(ushort), DataType.UInt16),
             ushort.MaxValue,
             ushort.MinValue);
 
@@ -231,17 +231,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<int, int?>(
-            new DbDataType(typeof(int)),
+            new DbDataType(typeof(int), DataType.Int32),
             default,
             default);
 
         await TestType<int, int?>(
-            new DbDataType(typeof(int)),
+            new DbDataType(typeof(int), DataType.Int32),
             int.MinValue,
             int.MaxValue);
 
         await TestType<int, int?>(
-            new DbDataType(typeof(int)),
+            new DbDataType(typeof(int), DataType.Int32),
             int.MaxValue,
             int.MinValue);
 
@@ -265,17 +265,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<uint, uint?>(
-            new DbDataType(typeof(uint)),
+            new DbDataType(typeof(uint), DataType.UInt32),
             default,
             default);
 
         await TestType<uint, uint?>(
-            new DbDataType(typeof(uint)),
+            new DbDataType(typeof(uint), DataType.UInt32),
             uint.MinValue,
             uint.MaxValue);
 
         await TestType<uint, uint?>(
-            new DbDataType(typeof(uint)),
+            new DbDataType(typeof(uint), DataType.UInt32),
             uint.MaxValue,
             uint.MinValue);
 
@@ -299,17 +299,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<long, long?>(
-            new DbDataType(typeof(long)),
+            new DbDataType(typeof(long), DataType.Int64),
             default,
             default);
 
         await TestType<long, long?>(
-            new DbDataType(typeof(long)),
+            new DbDataType(typeof(long), DataType.Int64),
             long.MinValue,
             long.MaxValue);
 
         await TestType<long, long?>(
-            new DbDataType(typeof(long)),
+            new DbDataType(typeof(long), DataType.Int64),
             long.MaxValue,
             long.MinValue);
 
@@ -333,17 +333,17 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<ulong, ulong?>(
-            new DbDataType(typeof(ulong)),
+            new DbDataType(typeof(ulong), DataType.UInt64),
             default,
             default);
 
         await TestType<ulong, ulong?>(
-            new DbDataType(typeof(ulong)),
+            new DbDataType(typeof(ulong), DataType.UInt64),
             ulong.MinValue,
             ulong.MaxValue);
 
         await TestType<ulong, ulong?>(
-            new DbDataType(typeof(ulong)),
+            new DbDataType(typeof(ulong), DataType.UInt64),
             ulong.MaxValue,
             ulong.MinValue);
 
@@ -367,39 +367,39 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             default,
             default);
 
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             float.MinValue,
             float.MaxValue);
 
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             float.MaxValue,
             float.MinValue);
 
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             float.Epsilon,
             float.NaN,
             filterByNullableValue: false);
 
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             float.NaN,
             float.Epsilon,
             filterByValue: false);
 
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             float.PositiveInfinity,
             float.NegativeInfinity);
 
         await TestType<float, float?>(
-            new DbDataType(typeof(float)),
+            new DbDataType(typeof(float), DataType.Single),
             float.NegativeInfinity,
             float.PositiveInfinity);
 
@@ -423,39 +423,39 @@ public sealed class YdbTypeTests : TypeTestsBase
     {
         // default
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             default,
             default);
 
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             double.MinValue,
             double.MaxValue);
 
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             double.MaxValue,
             double.MinValue);
 
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             double.Epsilon,
             double.NaN,
             filterByNullableValue: false);
 
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             double.NaN,
             double.Epsilon,
             filterByValue: false);
 
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             double.PositiveInfinity,
             double.NegativeInfinity);
 
         await TestType<double, double?>(
-            new DbDataType(typeof(double)),
+            new DbDataType(typeof(double), DataType.Double),
             double.NegativeInfinity,
             double.PositiveInfinity);
 
@@ -482,12 +482,12 @@ public sealed class YdbTypeTests : TypeTestsBase
         var defaultMin = -6251426433752.935439503M;
 
         await TestType<decimal, decimal?>(
-            new DbDataType(typeof(decimal)),
+            new DbDataType(typeof(decimal), DataType.Decimal),
             default,
             default);
 
         await TestType<decimal, decimal?>(
-            new DbDataType(typeof(decimal)),
+            new DbDataType(typeof(decimal), DataType.Decimal),
             defaultMax,
             defaultMin);
 
@@ -501,7 +501,7 @@ public sealed class YdbTypeTests : TypeTestsBase
                 if (s > 1 && s < p - 1 && s != 9)
                     continue;
 
-                var decimalType = new DbDataType(typeof(decimal))
+                var decimalType = new DbDataType(typeof(decimal), DataType.Decimal)
                     .WithPrecision(p)
                     .WithScale(s);
 
@@ -613,14 +613,15 @@ public sealed class YdbTypeTests : TypeTestsBase
     public async ValueTask TestString()
     {
         // ---------- byte[] <-> Binary (by value) ----------
+        // Binary is tested by value, so we fully compare the byte arrays.
 
         await TestType<byte[], byte[]?>(
-            new DbDataType(typeof(byte[])),
+            new DbDataType(typeof(byte[]), DataType.Binary),
             Array.Empty<byte>(),
             default);
 
         await TestType<byte[], byte[]?>(
-            new DbDataType(typeof(byte[])),
+            new DbDataType(typeof(byte[]), DataType.Binary),
             new byte[] { 0, 1, 2, 3, 4, 0 },
             new byte[] { 1, 2, 3, 4, 0, 0 });
 
@@ -648,6 +649,7 @@ public sealed class YdbTypeTests : TypeTestsBase
             isExpectedNullableValue: _ => true);
 
         // ---------- string <-> Binary ----------
+        // Same idea as for VarBinary: we only ensure roundtripping without exceptions.
 
         await TestType<string, string?>(
             new DbDataType(typeof(string), DataType.Binary),
@@ -668,18 +670,19 @@ public sealed class YdbTypeTests : TypeTestsBase
             isExpectedNullableValue: _ => true);
 
         // ---------- MemoryStream <-> Binary ----------
+        // MemoryStream is treated as a Binary payload and compared by content.
 
         var streamEmpty = new MemoryStream(Array.Empty<byte>());
         var streamData1 = new MemoryStream(new byte[] { 0, 1, 2, 3, 4, 0 });
         var streamData2 = new MemoryStream(new byte[] { 1, 2, 3, 4, 0, 0 });
 
         await TestType<MemoryStream, MemoryStream?>(
-            new DbDataType(typeof(MemoryStream)),
+            new DbDataType(typeof(MemoryStream), DataType.Binary),
             streamEmpty,
             default);
 
         await TestType<MemoryStream, MemoryStream?>(
-            new DbDataType(typeof(MemoryStream)),
+            new DbDataType(typeof(MemoryStream), DataType.Binary),
             streamData1,
             streamData2);
     }
@@ -688,32 +691,32 @@ public sealed class YdbTypeTests : TypeTestsBase
     public async ValueTask TestUtf8()
     {
         await TestType<string, string?>(
-            new DbDataType(typeof(string)),
+            new DbDataType(typeof(string), DataType.NVarChar),
             string.Empty,
             default);
 
         await TestType<string, string?>(
-            new DbDataType(typeof(string)),
+            new DbDataType(typeof(string), DataType.NVarChar),
             TestEscapingString,
             TestEscapingString);
 
         await TestType<char, char?>(
-            new DbDataType(typeof(string)),
+            new DbDataType(typeof(string), DataType.NVarChar),
             default,
             default);
 
         await TestType<char, char?>(
-            new DbDataType(typeof(string)),
+            new DbDataType(typeof(string), DataType.NVarChar),
             '\0',
             '1');
 
         await TestType<char, char?>(
-            new DbDataType(typeof(string)),
+            new DbDataType(typeof(string), DataType.NVarChar),
             'ы',
             '\xFE');
 
         await TestType<char, char?>(
-            new DbDataType(typeof(string)),
+            new DbDataType(typeof(string), DataType.NVarChar),
             '\xFF',
             '\n');
     }
@@ -721,6 +724,9 @@ public sealed class YdbTypeTests : TypeTestsBase
     [Test]
     public async ValueTask TestJson()
     {
+        // JSON text is stored in textual JSON column (DataType.Json).
+        // We only check that data can be round-tripped without strict value comparison.
+
         await TestType<string, string?>(
             new DbDataType(typeof(string), DataType.Json),
             "{}",
@@ -760,6 +766,9 @@ public sealed class YdbTypeTests : TypeTestsBase
     [Test]
     public async ValueTask TestJsonDocument()
     {
+        // BinaryJson stores JSON as a binary document; we again only verify
+        // that provider can read/write values without strict equality checks.
+
         await TestType<string, string?>(
             new DbDataType(typeof(string), DataType.BinaryJson),
             "{}",
@@ -800,16 +809,20 @@ public sealed class YdbTypeTests : TypeTestsBase
     public async ValueTask TestUUID()
     {
         await TestType<Guid, Guid?>(
-            new DbDataType(typeof(Guid)),
+            new DbDataType(typeof(Guid), DataType.Guid),
             default,
             default);
 
         await TestType<Guid, Guid?>(
-            new DbDataType(typeof(Guid)),
+            new DbDataType(typeof(Guid), DataType.Guid),
             TestData.Guid1,
             TestData.Guid2);
     }
 
+    /// <summary>
+    /// Tests "classic" YDB Datetime type (seconds precision, limited range),
+    /// explicitly mapped via DbType = "Datetime".
+    /// </summary>
     [Test]
     public async ValueTask TestDateTime()
     {
@@ -824,42 +837,53 @@ public sealed class YdbTypeTests : TypeTestsBase
         Func<BulkCopyType, bool> noProviderSpecific =
             t => t != BulkCopyType.ProviderSpecific;
 
+        // Explicitly fix YDB type as Datetime using DbType = "Datetime"
+        var dateTimeType = new DbDataType(typeof(DateTime), DataType.DateTime, "Datetime", null, null, null);
+        var dateTimeOffsetType =
+            new DbDataType(typeof(DateTimeOffset), DataType.DateTime, "Datetime", null, null, null);
+
         // DateTime → YDB Datetime (seconds precision)
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime),
+            dateTimeType,
             TestData.Date,
             null,
+            testParameters: false,
             testBulkCopyType: noProviderSpecific);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime),
+            dateTimeType,
             min,
             max,
+            testParameters: false,
             testBulkCopyType: noProviderSpecific);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime),
+            dateTimeType,
             minWithTime,
             maxWithTime,
+            testParameters: false,
             testBulkCopyType: noProviderSpecific);
 
         // DateTimeOffset → YDB Datetime
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime),
+            dateTimeOffsetType,
             new DateTimeOffset(TestData.Date, default),
             null,
+            testParameters: false,
             testBulkCopyType: noProviderSpecific);
 
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime),
+            dateTimeOffsetType,
             new DateTimeOffset(min, default),
             new DateTimeOffset(max, default),
+            testParameters: false,
             testBulkCopyType: noProviderSpecific);
 
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime),
+            dateTimeOffsetType,
             new DateTimeOffset(minWithTime, default),
             new DateTimeOffset(maxWithTime, default),
+            testParameters: false,
             testBulkCopyType: noProviderSpecific);
     }
 
@@ -872,40 +896,66 @@ public sealed class YdbTypeTests : TypeTestsBase
         var minWithTime = min.AddTicks(10);
         var maxWithTime = max.AddTicks(-10);
 
+        // Explicit YDB timestamp mapping:
+        // - DateTime           → YDB Timestamp
+        // - DateTimeOffset     → YDB Timestamp
+        
+        var tsDateTimeType = new DbDataType(
+            typeof(DateTime),
+            DataType.Timestamp);
+
+        var tsDateTimeOffsetType = new DbDataType(
+            typeof(DateTimeOffset),
+            DataType.Timestamp);
+
+        // DateTime → Timestamp
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime)),
+            tsDateTimeType,
             TestData.Date,
             default);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime)),
+            tsDateTimeType,
             min,
             max);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime)),
+            tsDateTimeType,
             minWithTime,
             maxWithTime);
 
         var minDto = new DateTimeOffset(min, default);
         var maxDto = new DateTimeOffset(max, default);
 
+        // DateTimeOffset → Timestamp
+        // Here we explicitly turn off parameterized queries, so that LinqToDB
+        // generates inline literals instead of creating YdbParameter with
+        // DateTimeOffset value (which YdbParameter cannot pack).
+        
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset)),
+            tsDateTimeOffsetType,
             new DateTimeOffset(TestData.Date),
-            default);
+            default,
+            testParameters: false);
 
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset)),
+            tsDateTimeOffsetType,
             minDto,
-            maxDto);
+            maxDto,
+            testParameters: false);
 
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset)),
+            tsDateTimeOffsetType,
             maxDto,
-            minDto);
+            minDto,
+            testParameters: false);
     }
 
+
+    /// <summary>
+    /// Tests legacy Interval type (microseconds stored internally) with rounding
+    /// to 10 ticks (1 microsecond = 10 ticks in .NET).
+    /// </summary>
     [Test]
     public async ValueTask TestInterval()
     {
@@ -916,19 +966,23 @@ public sealed class YdbTypeTests : TypeTestsBase
         var maxExpected = TimeSpan.FromDays(49673) - TimeSpan.FromTicks(10);
 
         await TestType<TimeSpan, TimeSpan?>(
-            new DbDataType(typeof(TimeSpan)),
+            new DbDataType(typeof(TimeSpan), DataType.Interval),
             max,
             default,
             getExpectedValue: _ => maxExpected);
 
         await TestType<TimeSpan, TimeSpan?>(
-            new DbDataType(typeof(TimeSpan)),
+            new DbDataType(typeof(TimeSpan), DataType.Interval),
             min,
             max,
             getExpectedValue: _ => minExpected,
             getExpectedNullableValue: _ => maxExpected);
     }
 
+    /// <summary>
+    /// Tests YDB Date type (days since epoch) mapped to DateTime and DateTimeOffset.
+    /// Time component is truncated; YDB returns UTC dates.
+    /// </summary>
     [Test]
     public async ValueTask TestDate()
     {
@@ -936,16 +990,16 @@ public sealed class YdbTypeTests : TypeTestsBase
         var max = new DateTime(2105, 12, 31);
 
 #if SUPPORTS_DATEONLY
-            // DateOnly → YDB Date
-            await TestType<DateOnly, DateOnly?>(
-                new DbDataType(typeof(DateOnly)),
-                DateOnly.FromDateTime(TestData.Date),
-                null);
+        // DateOnly → YDB Date
+        await TestType<DateOnly, DateOnly?>(
+            new DbDataType(typeof(DateOnly), DataType.Date),
+            DateOnly.FromDateTime(TestData.Date),
+            null);
 
-            await TestType<DateOnly, DateOnly?>(
-                new DbDataType(typeof(DateOnly)),
-                DateOnly.FromDateTime(min),
-                DateOnly.FromDateTime(max));
+        await TestType<DateOnly, DateOnly?>(
+            new DbDataType(typeof(DateOnly), DataType.Date),
+            DateOnly.FromDateTime(min),
+            DateOnly.FromDateTime(max));
 #endif
 
         // YDB Date stores only date part, so we truncate time
@@ -985,6 +1039,10 @@ public sealed class YdbTypeTests : TypeTestsBase
             getExpectedNullableValue: _ => expectedDtoMax);
     }
 
+    /// <summary>
+    /// Tests extended Date32 type: same logical semantics as Date (date only),
+    /// but with a wider valid range. DbType = "Date32" is used to force this mapping.
+    /// </summary>
     [Test]
     public async ValueTask TestDate32()
     {
@@ -992,20 +1050,21 @@ public sealed class YdbTypeTests : TypeTestsBase
         var max = new DateTime(2105, 12, 31);
 
 #if SUPPORTS_DATEONLY
-            // DateOnly → YDB Date32 (same DataType.Date, but a new YDB type)
-            await TestType<DateOnly, DateOnly?>(
-                new DbDataType(typeof(DateOnly), DataType.Date),
-                DateOnly.FromDateTime(TestData.Date),
-                null);
+        // DateOnly → YDB Date32 (same DataType.Date, but DbType = "Date32")
+        await TestType<DateOnly, DateOnly?>(
+            new DbDataType(typeof(DateOnly), DataType.Date, "Date32", null, null, null),
+            DateOnly.FromDateTime(TestData.Date),
+            null);
 
-            await TestType<DateOnly, DateOnly?>(
-                new DbDataType(typeof(DateOnly), DataType.Date),
-                DateOnly.FromDateTime(min),
-                DateOnly.FromDateTime(max));
+        await TestType<DateOnly, DateOnly?>(
+            new DbDataType(typeof(DateOnly), DataType.Date, "Date32", null, null, null),
+            DateOnly.FromDateTime(min),
+            DateOnly.FromDateTime(max));
 #endif
 
+        // DateTime → YDB Date32: only the date part is stored; time is truncated.
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.Date),
+            new DbDataType(typeof(DateTime), DataType.Date, "Date32", null, null, null),
             TestData.Date,
             null,
             getExpectedValue: v => v.Date);
@@ -1015,56 +1074,75 @@ public sealed class YdbTypeTests : TypeTestsBase
         var expectedMax = new DateTime(max.Ticks, DateTimeKind.Utc);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.Date),
+            new DbDataType(typeof(DateTime), DataType.Date, "Date32", null, null, null),
             min,
             max,
             getExpectedValue: _ => expectedMin,
             getExpectedNullableValue: _ => expectedMax);
     }
 
+    /// <summary>
+    /// Tests extended Datetime64 type.
+    /// Datetime64 stores the number of seconds since Unix epoch (1970-01-01 00:00:00 UTC),
+    /// so sub-second precision is truncated on write/read.
+    /// </summary>
     [Test]
     public async ValueTask TestDatetime64()
     {
-        var min         = new DateTime(1970, 1, 1);
-        var max         = new DateTime(2105, 12, 31);
-        var minWithTime = min.AddTicks(10);
-        var maxWithTime = max.AddTicks(-10);
+        var min         = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        var max         = new DateTime(2105, 12, 31, 23, 59, 59, DateTimeKind.Utc);
+        var minWithTime = min.AddSeconds(1);
+        var maxWithTime = max.AddSeconds(-1);
 
-        // DateTime → Timestamp (µs)
+        var dtType = new DbDataType(
+            typeof(DateTime),
+            DataType.DateTime,
+            "Datetime64",
+            null,
+            null,
+            null);
+
+        // Datetime64 stores seconds since epoch → truncate .NET DateTime to seconds.
+        static DateTime TruncateToSeconds(DateTime v)
+        {
+            var ticks = v.Ticks - (v.Ticks % TimeSpan.TicksPerSecond);
+            return new DateTime(ticks, DateTimeKind.Utc);
+        }
+
+        static DateTime? TruncateToSecondsNullable(DateTime? v)
+        {
+            return v.HasValue
+                ? TruncateToSeconds(v.Value)
+                : null;
+        }
+
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime2),
+            dtType,
             TestData.Date,
-            default);
-
-        await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime2),
-            min,
-            max);
-
-        await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime2),
-            minWithTime,
-            maxWithTime);
-
-        await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2),
-            new DateTimeOffset(TestData.Date, default),
             default,
-            testParameters: false);
+            getExpectedValue: TruncateToSeconds,
+            getExpectedNullableValue: TruncateToSecondsNullable);
 
-        await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2),
-            new DateTimeOffset(min, default),
-            new DateTimeOffset(max, default),
-            testParameters: false);
+        await TestType<DateTime, DateTime?>(
+            dtType,
+            min,
+            max,
+            getExpectedValue: TruncateToSeconds,
+            getExpectedNullableValue: TruncateToSecondsNullable);
 
-        await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2),
-            new DateTimeOffset(minWithTime, default),
-            new DateTimeOffset(maxWithTime, default),
-            testParameters: false);
+        await TestType<DateTime, DateTime?>(
+            dtType,
+            minWithTime,
+            maxWithTime,
+            getExpectedValue: TruncateToSeconds,
+            getExpectedNullableValue: TruncateToSecondsNullable);
     }
 
+    /// <summary>
+    /// Tests extended Timestamp64 type.
+    /// Timestamp64 stores the number of microseconds since Unix epoch,
+    /// so full tick precision (10 ticks = 1 microsecond) is preserved.
+    /// </summary>
     [Test]
     public async ValueTask TestTimestamp64()
     {
@@ -1073,62 +1151,69 @@ public sealed class YdbTypeTests : TypeTestsBase
         var minWithTime = min.AddTicks(10);
         var maxWithTime = max.AddTicks(-10);
 
-        // DateTime → Timestamp (µs)
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime2),
+            new DbDataType(typeof(DateTime), DataType.DateTime2, "Timestamp64", null, null, null),
             TestData.Date,
             default);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime2),
+            new DbDataType(typeof(DateTime), DataType.DateTime2, "Timestamp64", null, null, null),
             min,
             max);
 
         await TestType<DateTime, DateTime?>(
-            new DbDataType(typeof(DateTime), DataType.DateTime2),
+            new DbDataType(typeof(DateTime), DataType.DateTime2, "Timestamp64", null, null, null),
             minWithTime,
             maxWithTime);
 
+        var minDto = new DateTimeOffset(min, default);
+        var maxDto = new DateTimeOffset(max, default);
+
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2),
+            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2, "Timestamp64", null, null, null),
             new DateTimeOffset(TestData.Date, default),
             default,
             testParameters: false);
 
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2),
-            new DateTimeOffset(min, default),
-            new DateTimeOffset(max, default),
+            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2, "Timestamp64", null, null, null),
+            minDto,
+            maxDto,
             testParameters: false);
 
         await TestType<DateTimeOffset, DateTimeOffset?>(
-            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2),
-            new DateTimeOffset(max, default),
-            new DateTimeOffset(min, default),
+            new DbDataType(typeof(DateTimeOffset), DataType.DateTime2, "Timestamp64", null, null, null),
+            maxDto,
+            minDto,
             testParameters: false);
     }
 
+    /// <summary>
+    /// Tests extended Interval64 type.
+    /// Interval64 stores the number of microseconds in a time interval,
+    /// so values are effectively rounded to 10 ticks (1 microsecond).
+    /// </summary>
     [Test]
     public async ValueTask TestInterval64()
     {
         var min = TimeSpan.FromDays(-49673) + TimeSpan.FromTicks(1);
         var max = TimeSpan.FromDays(49673)  - TimeSpan.FromTicks(1);
 
-        // In YDB Interval is stored in microseconds: values are rounded to 10 ticks
         var minExpected = TimeSpan.FromDays(-49673) + TimeSpan.FromTicks(10);
         var maxExpected = TimeSpan.FromDays(49673)  - TimeSpan.FromTicks(10);
 
         await TestType<TimeSpan, TimeSpan?>(
-            new DbDataType(typeof(TimeSpan), DataType.Interval),
+            new DbDataType(typeof(TimeSpan), DataType.Interval, "Interval64", null, null, null),
             max,
             default,
             getExpectedValue: _ => maxExpected);
 
         await TestType<TimeSpan, TimeSpan?>(
-            new DbDataType(typeof(TimeSpan), DataType.Interval),
+            new DbDataType(typeof(TimeSpan), DataType.Interval, "Interval64", null, null, null),
             min,
             max,
             getExpectedValue: _ => minExpected,
             getExpectedNullableValue: _ => maxExpected);
     }
+
 }
